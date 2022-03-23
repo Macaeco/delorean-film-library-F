@@ -1,0 +1,61 @@
+//hay que recuperar el value del buscador
+// poner todas las posibilidades ( centos, minusculas)
+//ESPACIOS- la api reconoce los espacios que escibimos poniendolos como (%20)
+//eliminar el espacio inicial
+// hacer el fetch de las dos apis, una que busca por el nombre de las peliculas, pudiendole poner EN o ES 
+// de esa api saco el ID, que le pasare x params al segundo FETCH
+//el segundo fetch busca pr id
+// guardar el resutado
+
+// import { useState,useContext } from "react"
+// import { themeContext } from "../context/themeContext";
+
+// const [theme, setTheme, changeTheme, filmsID, setFilmsId, filmsName, setFilmsName, logName, setLogName] = useContext(themeContext)
+// export const getFilms =  (filmSearch) => {
+//     // let [filmsName, setFilmsName] = useState([])
+
+//     fetch(`https://mdblist.p.rapidapi.com/?s=${filmSearch}`, {
+//         "method": "GET",
+//         "headers": {
+//             "x-rapidapi-host": "mdblist.p.rapidapi.com",
+//             'X-RapidAPI-Key': 'b81875d2cfmshebf4a27a4079fc3p1e2d91jsn52b81f728620'
+//         }
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             // console.log(data)
+//             if (data.search.length !== 0) {
+//                 const arrayID = data.search.map(a => a.id);
+//                 arrayID.map(a => {
+//                     fetch(`https://mdblist.p.rapidapi.com/?i=${a}`, {
+//                         // fetch('https://mdblist.p.rapidapi.com/?i=tt0073195', {
+//                         "method": "GET",
+//                         "headers": {
+//                             "x-rapidapi-host": "mdblist.p.rapidapi.com",
+//                             'X-RapidAPI-Key': 'b81875d2cfmshebf4a27a4079fc3p1e2d91jsn52b81f728620'
+//                         }
+//                     })
+//                         .then(response => response.json())
+//                         .then(data => {
+//                             // console.log(data) 
+//                             setFilmsName((filmsName) => [...filmsName, data])
+//                             console.log(data)
+
+//                         })
+//                         .catch(err => {
+//                             console.error(err);
+//                         });
+//                 })
+//             }
+
+//             // console.log(data.search)
+
+//         })
+//         .catch(err => {
+//             console.error(err);
+//         });
+
+
+//    return  filmsName
+
+// }

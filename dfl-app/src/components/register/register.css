@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.register__container{
+    background-image:url("./backgroundregister.jpg");
+    width: 40%;
+    border: solid;
+    border-width: 1px;
+    border-color: lightslategray;
+    border-radius: 5px;
+    padding: 10px;
+}
+.all__input{
+    margin: 20px;
+    border-style:solid;
+
+    
+}
+.main__reggister{
+    margin-top: auto;
+    min-height: 100vh;
+    background-size: cover;
+    background-image: url("./fondomarmol.webp");
+    /* background-image: url("./fondo.png"); */
+    /* background-image: url("./fondo.jpg"); */
+}

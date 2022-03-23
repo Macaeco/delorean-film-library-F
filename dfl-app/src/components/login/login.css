@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+.button{
+    margin: 10px;
+}
+
+.login__container{
+    background-image:url("../register/fondo.png");
+    width: 40%;
+    border: solid;
+    border-width: 1px;
+    border-color: lightslategray;
+    border-radius: 5px;
+    padding: 10px;
+}
+.all__input{
+    margin: 20px;
+    border-style:solid;
+
+    
+}
+.mail__login{
+    margin-top: auto;
+    min-height: 100vh;
+    background-size: cover;
+    background-image: url("../register/fondomarmol.webp");
+}

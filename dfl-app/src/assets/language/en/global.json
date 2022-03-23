@@ -1,0 +1,45 @@
+{
+    "header":{
+        "home":"HOME",
+        "lists":"LISTS",
+        "profile":"PROFILE",
+        "search":"Search...",
+        "register": " REGISTER",
+        "login": "LOGIN"
+    },
+
+    "register":{
+        "name": "name",
+        "userName": "name user",
+        "email": "email",
+        "password": "password",
+        "register": "Create an new account",
+        "login": "Login"
+
+    },
+    "login":{
+        "email":"Email address",
+        "password":"Password",
+        "login":"Login",
+        "userName": "name user",
+        "register": "Create an acount"
+    },
+    "profile":{
+        "delete":"delete account",
+        "close":"close session",
+        "edit":"edit",
+        "send":"send",
+        "upload":"Enter your new data"
+
+
+    },
+
+    "cards":{
+        "details":"detail"
+    }
+
+
+
+
+
+}

@@ -1,0 +1,47 @@
+.add__card-container{
+    width: 100%;
+    padding: 0.2rem;
+}
+.form__container{
+    display: flex;
+    flex-direction: column;
+}
+#textarea{
+    resize: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: solid 1px #7db4eb;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+#textarea:focus{
+    outline: 0 none;
+    border: solid 1px #bec9d3;
+    box-shadow: none;
+}
+
+.form__button-container{
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0rem;
+}
+
+.form__button{
+    width: 50%;
+    border-radius: 5px;
+    padding: 0.3rem 1rem;
+    border: none; 
+    
+}
+
+
+
+
+
+
+#cancel_button{
+    background-color: #fafbfc;
+    border: solid 1px grey;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}

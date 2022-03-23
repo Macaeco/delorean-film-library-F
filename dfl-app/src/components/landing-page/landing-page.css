@@ -1,0 +1,18 @@
+.main__landing{
+    /* background-image:url("./bg.jpg") ; */
+    background-color: black;
+    background-size: cover;
+
+    
+} 
+
+/* 
+.container_bg{
+   
+    height: 100%;
+    opacity: 0.7;  
+    position: relative; 
+    z-index: -1;
+   
+    filter:brightness(80%)
+} */

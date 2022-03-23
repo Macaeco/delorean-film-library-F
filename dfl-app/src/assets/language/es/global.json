@@ -1,0 +1,42 @@
+{
+    "header":{
+        "home":"INICIO",
+        "lists":"LISTAS",
+        "profile":"PERFIL",
+        "search":"Buscar...",
+        "register": "REGISTRO",
+        "login":"ENTRA"
+    },
+
+    "register":{
+        "name": "nombre",
+        "userName": "nombre de usuario",
+        "email": "correo electrónico",
+        "password": "contraseña",
+        "register":"Regístrate",
+        "login":"Identifícate"
+        
+    },
+    "login":{
+        "email":"correo electrónico",
+        "password":"contraseña",
+        "login":"Identifícate",
+        "userName": "nombre de usuario",
+        "register": "Regístrate"
+    },
+    "profile":{
+        "delete":"Borrar cuenta",
+        "close":"Cerrar sesión" ,
+        "edit":"editar",
+        "send":"enviar",
+        "upload":"Introduce tus nuevos datos"
+
+
+    },
+    "cards":{
+        "details":"Ver más detalles"
+    }
+
+
+
+}
