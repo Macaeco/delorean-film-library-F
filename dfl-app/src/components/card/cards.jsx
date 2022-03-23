@@ -2,19 +2,14 @@ import Container from "react-bootstrap/esm/Container";
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Details from "../details/details";
-import { Link } from "react-router-dom";
-// import getIdFilmsEN from "../../api/api-fetchs.jsx";
 import { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { Translation } from "react-i18next";
 import { useTranslation } from "react-i18next";
-import Ratio from 'react-bootstrap/Ratio'
 import React from 'react';
-import { Player,ControlBar  } from 'video-react';
+
 // y si me hago la parte del if en una funcion?? guardo el segundo fetch en una constante  y hago asincrona la funcion con el await
 
 function Cards() {
@@ -27,7 +22,7 @@ function Cards() {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "mdblist.p.rapidapi.com",
-                'X-RapidAPI-Key': 'b81875d2cfmshebf4a27a4079fc3p1e2d91jsn52b81f728620'
+                
             }
         })
             .then(response => response.json())
@@ -41,7 +36,7 @@ function Cards() {
                             "method": "GET",
                             "headers": {
                                 "x-rapidapi-host": "mdblist.p.rapidapi.com",
-                                'X-RapidAPI-Key': 'b81875d2cfmshebf4a27a4079fc3p1e2d91jsn52b81f728620'
+                                
                             }
                         })
                             .then(response => response.json())
@@ -117,9 +112,14 @@ function Cards() {
 
                                                     </Card.Text>
                                                     <link rel="stylesheet" href={a.trailer} />
-                                                    <Player autoPlay src={a.trailer}>
+                                                    {/* <Player autoPlay src={a.trailer}>
                                                         <ControlBar autoHide={false} className="my-class" />
                                                     </Player>
+                                                    <div style={{ width: 660, height: 'auto' }}>
+                                                        <Ratio aspectRatio="16x9">
+                                                            <embed type="video" src={a.trailer} />
+                                                        </Ratio>
+                                                    </div> */}
 
 
                                                 </Container>

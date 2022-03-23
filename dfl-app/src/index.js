@@ -8,7 +8,7 @@ import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
 import global_es from "./assets/language/es/global.json";
 import global_en from "./assets/language/en/global.json";
-import "../node_modules/video-react/dist/video-react.css";
+// import "../node_modules/video-react/dist/video-react.css";
 import "./customs.scss"
 import ThemeProvider from './context/provider';
 
