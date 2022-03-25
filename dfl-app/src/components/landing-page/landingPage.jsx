@@ -20,6 +20,7 @@ function LandingPage() {
              {/* <Header></Header> */}
            
             <Container fluid className="main__landing d-flex flex-row" >
+                
                <Carrusel></Carrusel>
                 <Cards></Cards>             
             </Container>         

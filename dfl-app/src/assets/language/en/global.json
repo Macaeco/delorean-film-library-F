@@ -1,45 +1,45 @@
 {
-    "header":{
-        "home":"HOME",
-        "lists":"LISTS",
-        "profile":"PROFILE",
-        "search":"Search...",
+    "header": {
+        "home": "HOME",
+        "lists": "LISTS",
+        "profile": "PROFILE",
+        "search": "Search...",
         "register": " REGISTER",
         "login": "LOGIN"
     },
-
-    "register":{
+    "register": {
         "name": "name",
         "userName": "name user",
         "email": "email",
         "password": "password",
         "register": "Create an new account",
         "login": "Login"
-
     },
-    "login":{
-        "email":"Email address",
-        "password":"Password",
-        "login":"Login",
+    "login": {
+        "email": "Email address",
+        "password": "Password",
+        "login": "Login",
         "userName": "name user",
         "register": "Create an acount"
     },
-    "profile":{
-        "delete":"delete account",
-        "close":"close session",
-        "edit":"edit",
-        "send":"send",
-        "upload":"Enter your new data"
-
-
+    "profile": {
+        "delete": "delete account",
+        "close": "close session",
+        "edit": "edit",
+        "send": "send",
+        "upload": "Enter your new data"
     },
+    "cards": {
+        "details": "detail",
+        "comment": "leave a comment",
+        "commented": "comment"
+    },
+ "lists": {
+        "new": "New!!",
+        "top10": "Top 10 lists of your favorite movies",
+        "oniric":"Best dream movies",
+        "inteligence":"Bestartificial intelligence movies",
+        "room":"Best movies that take place on a single stage"
 
-    "cards":{
-        "details":"detail"
     }
-
-
-
-
-
 }

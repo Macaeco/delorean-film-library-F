@@ -9,32 +9,41 @@
     },
 
     "register":{
-        "name": "nombre",
-        "userName": "nombre de usuario",
-        "email": "correo electrónico",
+        "name": "Nombre",
+        "userName": "Nombre de usuario",
+        "email": "Correo electrónico",
         "password": "contraseña",
         "register":"Regístrate",
         "login":"Identifícate"
         
     },
     "login":{
-        "email":"correo electrónico",
-        "password":"contraseña",
+        "email":"Correo electrónico",
+        "password":"Contraseña",
         "login":"Identifícate",
-        "userName": "nombre de usuario",
+        "userName": "Nombre de usuario",
         "register": "Regístrate"
     },
     "profile":{
         "delete":"Borrar cuenta",
         "close":"Cerrar sesión" ,
-        "edit":"editar",
-        "send":"enviar",
+        "edit":"Editar",
+        "send":"Enviar",
         "upload":"Introduce tus nuevos datos"
 
 
     },
     "cards":{
-        "details":"Ver más detalles"
+        "details":"Ver más detalles",
+        "comment":"Deja tu comentario",
+        "commented": "Comenta"
+    },
+    "lists": {
+        "new": "¡¡Nuevo!!",
+        "top10": "top 10 mejores listas de tus películas favoritas",
+        "oniric":"Mejores 10 películas con temática onírica",
+        "inteligence":"Mejores 10 películas sobre inteligencia artificial",
+        "room":"Mejores películas que se desarollan en un solo escenario"
     }
 
 

@@ -19,6 +19,7 @@ function Profile() {
     const [theme, setTheme, changeTheme, filmsName, setFilmsName, logName, setLogName, access, updateAcces] = useContext(themeContext)
     let token = localStorage.getItem('token')
     let [user, setUser] = useState([])
+    let [listsFollowed,setListsFollowed]= useState([])
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -80,6 +81,26 @@ function Profile() {
         navigate('/')
 
     }
+
+
+    // useEffect(() => {
+
+    //     fetch('http://localhost:4000/', {
+    //         method: 'GET', 
+    //     })
+    //         .then(j => j.json())
+    //         .then(data => {
+    //             setListsFollowed(data)
+               
+
+    //             console.log(data)
+
+    //         })
+
+    // }, [])
+
+
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -90,7 +111,7 @@ function Profile() {
         <Container className="card__profile__container m-0 p-0" fluid  >
 
             <Col>
-                <div className="pt-5 ps-5">
+                <div className="pt-5 ps-5 d-flex flex-column justify-content-between">
                     <Card className="m-0 shadow p-3 mb-5 bg-body rounded" style={{ width: '50%', height: 'auto' }}>
                         <Card.Img variant={theme.secondary} src={gif1} className="m-5 rounded mb-0" />
                         <Container >
@@ -138,6 +159,24 @@ function Profile() {
                             </Form>
                         </Container>
                     </Card>
+                    <Container>
+                        <Card style={{ width: "40%", height: '60vh' }}>
+                            <Card.Header>SIGUES ESTAS LISTAS</Card.Header>
+                            <Card.Body>
+                                <blockquote className="blockquote mb-0">
+                                    <p>
+                                        {' '}
+                                        AQUI IRA  LOS NOMBRES DE LAS LISTAS {listsFollowed}.{' '}
+                                    </p>
+                                    <footer className="blockquote-footer">
+                                        Someone famous in <cite title="Source Title">Source Title</cite>
+                                    </footer>
+                                </blockquote>
+                            </Card.Body>
+                        </Card>
+
+
+                    </Container>
                 </div>
             </Col>
 

@@ -20,7 +20,7 @@ function ThemeProvider({children}){
     let [filmsName, setFilmsName] = useState([])
     let [logName,setLogName]= useState('')
     let [access, updateAcces] = useState([]);
-    let [filmsValue, setFilmsValue]=([''])
+    let [filmsValue, setFilmsValue]=useState('')
   
     const [theme, setTheme]=useState(lightTheme)
 
