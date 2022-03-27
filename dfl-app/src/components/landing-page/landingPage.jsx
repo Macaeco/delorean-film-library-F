@@ -13,17 +13,17 @@ import Header from "../header/header";
 
 function LandingPage() {
 
-    const location =useLocation()
+    const location = useLocation()
     // console.log(location)
     return (
         <React.Fragment>
-             {/* <Header></Header> */}
-           
-            <Container fluid className="main__landing d-flex flex-row" >
-                
-               <Carrusel></Carrusel>
-                <Cards></Cards>             
-            </Container>         
+            {/* <Header></Header> */}
+
+            <Container fluid className="main__landing d-flex flex-row " >
+            
+                <Carrusel ></Carrusel>
+                <Cards></Cards>
+            </Container>
         </React.Fragment>
     )
 }

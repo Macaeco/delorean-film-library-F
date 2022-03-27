@@ -16,10 +16,11 @@ import FormControl from 'react-bootstrap/FormControl'
 
 function Profile() {
     const [t, i18n] = useTranslation('global');
-    const [theme, setTheme, changeTheme, filmsName, setFilmsName, logName, setLogName, access, updateAcces] = useContext(themeContext)
+    const [theme,setTheme,changeTheme,filmsName, setFilmsName,logName,setLogName,access, updateAcces,filmsValue, setFilmsValue] = useContext(themeContext)
     let token = localStorage.getItem('token')
     let [user, setUser] = useState([])
-    let [listsFollowed,setListsFollowed]= useState([])
+    let [listsFollowed, setListsFollowed] = useState([])
+   
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -32,13 +33,14 @@ function Profile() {
             .then(data => {
                 setUser(data)
                 localStorage.setItem('ID', data._id)
-
                 console.log(data)
+               
 
             })
 
     }, [])
-
+    console.log(user)
+ 
     const handleDelete = () => {
         {
             fetch('http://localhost:4000/users', {
@@ -52,6 +54,7 @@ function Profile() {
                     navigate('/')
                 })
         }
+
     }
     const id = localStorage.getItem('ID')
     const handlePatch = (e) => {
@@ -91,13 +94,15 @@ function Profile() {
     //         .then(j => j.json())
     //         .then(data => {
     //             setListsFollowed(data)
-               
+
 
     //             console.log(data)
 
     //         })
 
     // }, [])
+
+ 
 
 
 
@@ -165,8 +170,7 @@ function Profile() {
                             <Card.Body>
                                 <blockquote className="blockquote mb-0">
                                     <p>
-                                        {' '}
-                                        AQUI IRA  LOS NOMBRES DE LAS LISTAS {listsFollowed}.{' '}
+                                        {/* {user.lists.idList}  */}
                                     </p>
                                     <footer className="blockquote-footer">
                                         Someone famous in <cite title="Source Title">Source Title</cite>

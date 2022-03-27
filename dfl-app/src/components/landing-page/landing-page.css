@@ -1,7 +1,8 @@
 .main__landing{
-    /* background-image:url("./bg.jpg") ; */
+    background-image:url("../lists/posters/original.jpg") ;
     background-color: black;
-    background-size: cover;
+    width: 100%;
+    /* background-size: cover; */
 
     
 } 

@@ -36,7 +36,11 @@
     "cards":{
         "details":"Ver más detalles",
         "comment":"Deja tu comentario",
-        "commented": "Comenta"
+      
+        "commented": "Comenta",
+        "year": "Año",
+        "sinopsis":"Sinopsis",
+        "country": "País"
     },
     "lists": {
         "new": "¡¡Nuevo!!",
@@ -44,6 +48,7 @@
         "oniric":"Mejores 10 películas con temática onírica",
         "inteligence":"Mejores 10 películas sobre inteligencia artificial",
         "room":"Mejores películas que se desarollan en un solo escenario"
+        
     }
 
 

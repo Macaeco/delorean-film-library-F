@@ -14,6 +14,7 @@ import Cards from './components/card/cards';
 import Card from 'react-bootstrap/Card'
 import Validate from './components/validate/validate';
 import ProtectedPage from './components/private-routes/privateRoutes';
+import Footer from './components/footer/footer';
 
 
 
@@ -38,6 +39,8 @@ function App() {
           <Route path="/validate" element={<Validate></Validate>}></Route>
         </Routes>
         {/* <Cards></Cards> */}
+        
+        <Footer></Footer>
       </BrowserRouter>
     </>
   );

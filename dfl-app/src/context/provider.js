@@ -21,6 +21,8 @@ function ThemeProvider({children}){
     let [logName,setLogName]= useState('')
     let [access, updateAcces] = useState([]);
     let [filmsValue, setFilmsValue]=useState('')
+
+  
   
     const [theme, setTheme]=useState(lightTheme)
 
@@ -29,7 +31,7 @@ function ThemeProvider({children}){
     }
 
     return (
-        <themeContext.Provider value={[theme,setTheme,changeTheme,filmsName, setFilmsName,logName,setLogName,access, updateAcces,filmsValue, setFilmsValue ]}> {children} </themeContext.Provider>
+        <themeContext.Provider value={[theme,setTheme,changeTheme,filmsName, setFilmsName,logName,setLogName,access, updateAcces,filmsValue, setFilmsValue,]}> {children} </themeContext.Provider>
     )
 
 }

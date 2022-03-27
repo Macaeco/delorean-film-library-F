@@ -32,7 +32,11 @@
     "cards": {
         "details": "detail",
         "comment": "leave a comment",
-        "commented": "comment"
+        "commented": "comment",
+        "year": "Year",
+        "sinopsis":"Sinopsis",
+        "country": "Country"
+       
     },
  "lists": {
         "new": "New!!",

@@ -4,87 +4,97 @@ import Spinner from "react-bootstrap/esm/Spinner";
 import { useTranslation } from "react-i18next";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import chihiro from "./posters/chihiro.jpg"
-import wakinLife from "./posters/wakinglife.jpg"
-import adaption from "./posters/adaption.jpg"
-import paprika from "./posters/paprika_.jpg"
-import origen from "./posters/origen.jpg"
-import solaris from "./posters/solaris.jpg"
 import { useState, useEffect } from "react"
-
-
+import { useContext } from "react";
+import { themeContext } from "../../context/themeContext";
+import "./lists.css"
 
 import "./lists.css"
 
 function Lists(props) {
     const [t, i18n] = useTranslation('global');
     const [listFilms, setListFilms] = useState()
-    const [favsFilms,setFavsFilms]= useState([])
+    const [favsFilms, setFavsFilms] = useState([])
+    const [userL, setUserL] = useState([])
+    const [theme, setTheme, changeTheme, filmsName, setFilmsName, logName, setLogName, access, updateAcces, filmsValue, setFilmsValue] = useContext(themeContext)
 
     useEffect(() => {
         fetch('http://localhost:4000/lists')
             .then(j => j.json())
             .then(data => {
-                
+
                 setListFilms(data)
                 console.log(data)
-              
+
 
             })
     }, [])
+    useEffect(() => {
 
-    const handleOnSubmmit= e => {
-        const listFoll = "Mejores peliculas sobre tema onírico"
-
-        fetch('http://localhost:4000/lists', {
-
-        method:'POST',
-        body: JSON.stringify(listFoll),
-        headers: {'Content-Type': 'application/json'}
+        fetch('http://localhost:4000/users', {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
         })
-        .then(d=>d.json())
-        .then((data)=>{
-            console.log(data)
-            setFavsFilms([...favsFilms,listFoll])
-            console.log(listFoll)
-        })
+            .then(j => j.json())
+            .then(data => {
+                setUserL(data.list)
+                localStorage.setItem('ID', data._id)
+                console.log(data)
+            })
+    }, [])
+    console.log(userL)
 
+
+
+
+
+    const id = localStorage.getItem('ID')
+    let token = localStorage.getItem('token')
+    const handleOnSubmmit = (e) => {
+        e.preventDefault()
+        const idList = {
+            idList: 'ONIRICS FILMS'
+        }
+        fetch(`http://localhost:4000/users/lists/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(idList),
+            headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${token}` }
+        })
+            .then(j => j.json())
+            .then(data => {
+                // console.log(data) 
+            })
     }
 
 
-    // listFilms?console.log(listFilms[0].lists[0].onirics):console.log('cargando');
-    // listFilms?console.log(listFilms[0].lists[0]):console.log('cargando');
-    // listFilms?console.log(listFilms[0].lists):console.log('cargando');
-    // listFilms?console.log(listFilms[0]):console.log('cargando')
-    console.log(listFilms)
+    // console.log(listFilms)
+
+    return (
+        <Container className=" card__list__container container__lists ms-0 mt-0 ms-0  "  >
 
 
-
-
-
-    return ( 
-        <Container className="gap-3 " >
-
-
-            <Container className="container__lists pt-0" >
-
-                <hr></hr>
-                <h1>
-                    {t("lists.top10")}  <Badge bg="secondary">{t("lists.new")}</Badge>
-                </h1>
-                <hr></hr>
-                <Card className=" d-flex flex-column overflow-auto ">
+            {/* <Container className="container__lists pt-0 gap-3" > */}
+            <Container className=" rotule__container d-flex justify-content-center pt-5">
+            <hr></hr>
+            <h1>
+                {/* {t("lists.top10")}   */}
+                <Badge bg={theme.secondary} >{t("lists.top10")}  </Badge>
+            </h1>
+            <hr></hr>
+            </Container>
+            <Container style={{ minWidth: '2rem', maxWidth: '50rem', }} >
+                <Card className=" d-flex flex-column overflow-auto mt-4 "    >
                     <Card.Header>{t("lists.oniric")}</Card.Header>
                     <Card.Body>
 
                         <Container className=" d-flex  flex-nowrap overflow-auto">
-                            {listFilms?
+                            {listFilms ?
                                 listFilms[0].onirics.map((a, i) => {
-                                    console.log(a)
+                                    // console.log(a)
                                     return (
 
-                                        <Card key={i} style={{ minWidth: '18rem',maxWidth: '18rem' }} className="card card-block mx-2" >
-                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }}  />
+                                        <Card key={i} style={{ minWidth: '18rem', maxWidth: '18rem' }} className="card card-block mx-2" >
+                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }} />
                                             <Card.Body>
                                                 <Card.Title >{a.nameEn}</Card.Title>
                                             </Card.Body>
@@ -94,25 +104,24 @@ function Lists(props) {
                                 :
                                 <Spinner animation="border" role="status">
                                     <span className="visually-hidden">Loading...</span>
-                                </Spinner>} 
+                                </Spinner>}
 
                         </Container>
-                        <Button variant="primary" onClick={handleOnSubmmit}>SEGUIR</Button>
+                        <Button variant={theme.secondary} onClick={handleOnSubmmit} className="mt-2 ms-5">SEGUIR</Button>
                     </Card.Body>
                 </Card>
-
-                <Card className=" d-flex flex-column overflow-auto ">
+                <Card className=" d-flex flex-column overflow-auto mt-4 "     >
                     <Card.Header>{t("lists.inteligence")}</Card.Header>
                     <Card.Body>
 
                         <Container className=" d-flex  flex-nowrap overflow-auto">
-                            {listFilms?
+                            {listFilms ?
                                 listFilms[1].inteligence.map((a, i) => {
-                                    console.log(a)
+                                    // console.log(a)
                                     return (
 
-                                        <Card key={i} style={{ minWidth: '18rem',maxWidth: '18rem' }} className="card card-block mx-2" >
-                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }}  />
+                                        <Card key={i} style={{ minWidth: '18rem', maxWidth: '18rem' }} className="card card-block mx-2" >
+                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }} />
                                             <Card.Body>
                                                 <Card.Title >{a.nameEn}</Card.Title>
                                             </Card.Body>
@@ -122,24 +131,51 @@ function Lists(props) {
                                 :
                                 <Spinner animation="border" role="status">
                                     <span className="visually-hidden">Loading...</span>
-                                </Spinner>} 
+                                </Spinner>}
 
                         </Container>
-                        <Button variant="primary"  >SEGUIR</Button>
+                        <Button variant={theme.secondary} className="mt-2 ms-5">SEGUIR</Button>
                     </Card.Body>
                 </Card>
-                <Card className=" d-flex flex-column overflow-auto ">
+                <Card className=" d-flex flex-column overflow-auto mt-4 "     >
                     <Card.Header>{t("lists.room")}</Card.Header>
+                    <Card.Body >
+
+                        <Container className=" d-flex  flex-nowrap overflow-auto">
+                            {listFilms ?
+                                listFilms[2].room.map((a, i) => {
+                                    // console.log(a)
+                                    return (
+
+                                        <Card key={i} style={{ minWidth: '18rem', maxWidth: '18rem' }} className="card card-block mx-2" >
+                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }} />
+                                            <Card.Body>
+                                                <Card.Title >{a.nameEn}</Card.Title>
+                                            </Card.Body>
+                                        </Card>
+                                    )
+                                })
+                                :
+                                <Spinner animation="border" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </Spinner>}
+
+                        </Container>
+                        <Button variant={theme.secondary} type="submit" className="mt-2 ms-5">SEGUIR</Button>
+                    </Card.Body>
+                </Card>
+                <Card className=" d-flex flex-column overflow-auto mt-4 "     >
+                    <Card.Header>{t("lists.inteligence")}</Card.Header>
                     <Card.Body>
 
                         <Container className=" d-flex  flex-nowrap overflow-auto">
-                            {listFilms?
-                                listFilms[2].room.map((a, i) => {
-                                    console.log(a)
+                            {listFilms ?
+                                listFilms[3].neon.map((a, i) => {
+                                    // console.log(a)
                                     return (
 
-                                        <Card key={i} style={{ minWidth: '18rem',maxWidth: '18rem' }} className="card card-block mx-2" >
-                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }}  />
+                                        <Card key={i} style={{ minWidth: '18rem', maxWidth: '18rem' }} className="card card-block mx-2" >
+                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }} />
                                             <Card.Body>
                                                 <Card.Title >{a.nameEn}</Card.Title>
                                             </Card.Body>
@@ -149,21 +185,21 @@ function Lists(props) {
                                 :
                                 <Spinner animation="border" role="status">
                                     <span className="visually-hidden">Loading...</span>
-                                </Spinner>} 
+                                </Spinner>}
 
                         </Container>
-                        <Button variant="primary" type="submit" >SEGUIR</Button>
+                        <Button variant={theme.secondary} className="mt-2 ms-5">SEGUIR</Button>
                     </Card.Body>
                 </Card>
-
-
-
-
-
-
-
-
             </Container>
+
+
+
+
+
+
+
+            {/* </Container> */}
 
         </Container>
 
