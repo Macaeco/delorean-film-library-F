@@ -19,12 +19,13 @@ function LandingPage() {
         <React.Fragment>
             {/* <Header></Header> */}
 
-            <Container fluid className="main__landing d-flex flex-row " >
+            <Container id="main__container" fluid className="main__landing d-flex flex-row ps-5 " >
             
                 <Carrusel ></Carrusel>
-                <Cards></Cards>
+                <Cards className="carrusel__landing"></Cards>
             </Container>
         </React.Fragment>
+        
     )
 }
 export default LandingPage;

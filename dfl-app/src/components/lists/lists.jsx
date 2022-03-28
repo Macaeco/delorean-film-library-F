@@ -50,21 +50,49 @@ function Lists(props) {
 
     const id = localStorage.getItem('ID')
     let token = localStorage.getItem('token')
-    const handleOnSubmmit = (e) => {
-        e.preventDefault()
-        const idList = {
-            idList: 'ONIRICS FILMS'
-        }
+
+ 
+    const idFunction = (e) => {
         fetch(`http://localhost:4000/users/lists/${id}`, {
             method: 'PATCH',
-            body: JSON.stringify(idList),
+            body: JSON.stringify(e),
             headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${token}` }
         })
             .then(j => j.json())
             .then(data => {
                 // console.log(data) 
             })
+
     }
+    const handleOnSubmmit = (e) => {
+        e.preventDefault()
+        const idList = {
+            idList: 'ONIRICS'
+        }
+        idFunction(idList)
+    }
+    const handleInteligence = (e) => {
+        e.preventDefault()
+        const idList = {
+            idList: 'I.A LIST'
+        }
+        idFunction(idList)
+    }
+    const handleRoom = (e) => {
+        e.preventDefault()
+        const idList = {
+            idList: 'ONE SPACE '
+        }
+        idFunction(idList)
+    }
+    const handleNeon = (e) => {
+        e.preventDefault()
+        const idList = {
+            idList: 'NEON LIST'
+        }
+        idFunction(idList)
+    }
+
 
 
     // console.log(listFilms)
@@ -75,12 +103,12 @@ function Lists(props) {
 
             {/* <Container className="container__lists pt-0 gap-3" > */}
             <Container className=" rotule__container d-flex justify-content-center pt-5">
-            <hr></hr>
-            <h1>
-                {/* {t("lists.top10")}   */}
-                <Badge bg={theme.secondary} >{t("lists.top10")}  </Badge>
-            </h1>
-            <hr></hr>
+                <hr></hr>
+                <h1>
+                    {/* {t("lists.top10")}   */}
+                    <Badge bg={theme.secondary} >{t("lists.top10")}  </Badge>
+                </h1>
+                <hr></hr>
             </Container>
             <Container style={{ minWidth: '2rem', maxWidth: '50rem', }} >
                 <Card className=" d-flex flex-column overflow-auto mt-4 "    >
@@ -134,7 +162,7 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} className="mt-2 ms-5">SEGUIR</Button>
+                        <Button variant={theme.secondary} onClick={handleInteligence} className="mt-2 ms-5">SEGUIR</Button>
                     </Card.Body>
                 </Card>
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
@@ -161,7 +189,7 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} type="submit" className="mt-2 ms-5">SEGUIR</Button>
+                        <Button variant={theme.secondary} type="submit" onClick={handleRoom} className="mt-2 ms-5">SEGUIR</Button>
                     </Card.Body>
                 </Card>
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
@@ -188,7 +216,7 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} className="mt-2 ms-5">SEGUIR</Button>
+                        <Button variant={theme.secondary} onClick={handleNeon}className="mt-2 ms-5">SEGUIR</Button>
                     </Card.Body>
                 </Card>
             </Container>

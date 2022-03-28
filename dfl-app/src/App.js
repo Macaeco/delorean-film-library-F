@@ -15,6 +15,7 @@ import Card from 'react-bootstrap/Card'
 import Validate from './components/validate/validate';
 import ProtectedPage from './components/private-routes/privateRoutes';
 import Footer from './components/footer/footer';
+import Error404 from './pages/error/error';
 
 
 
@@ -37,10 +38,12 @@ function App() {
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/validate" element={<Validate></Validate>}></Route>
+          <Route path="/*" element={<Error404></Error404>}></Route>
+
         </Routes>
         {/* <Cards></Cards> */}
-        
-        <Footer></Footer>
+
+        {/* <Footer></Footer > */}
       </BrowserRouter>
     </>
   );

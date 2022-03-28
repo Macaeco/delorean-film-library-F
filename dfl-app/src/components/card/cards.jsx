@@ -43,7 +43,7 @@ function Cards() {
     //                 "method": "GET",
     //                 "headers": {
     //                     "x-rapidapi-host": "mdblist.p.rapidapi.com",
-    //                     'X-RapidAPI-Key': 'b81875d2cfmshebf4a27a4079fc3p1e2d91jsn52b81f728620'
+    //                     
     //                 }
     //             })
     //             const dat = await res.json()
@@ -65,7 +65,7 @@ function Cards() {
     //                 const arraychuck = chunk(idarray, 3)
     //                 console.log(arraychuck)
     //                 setFilmsName('')
-    //                 arraychuck.map(a => {
+    //                 arraychuck.map((a,i) => {
     //                     a.map(
     //                         a => {
     //                             setTimeout(() => {
@@ -75,7 +75,7 @@ function Cards() {
     //                                             "method": "GET",
     //                                             "headers": {
     //                                                 "x-rapidapi-host": "mdblist.p.rapidapi.com",
-    //                                                 'X-RapidAPI-Key': 'b81875d2cfmshebf4a27a4079fc3p1e2d91jsn52b81f728620'
+    //                                                 
     //                                             }
     //                                         })
     //                                         const dat = await res.json()
@@ -86,7 +86,7 @@ function Cards() {
     //                                     }
     //                                 }
     //                                 fetchMov2()
-    //                             }, 1500)
+    //                             }, i*1500)
     //                         }
     //                     )
     //                 })
@@ -114,7 +114,7 @@ function Cards() {
                     return (
                         <Row xs={1} md={1} className="g-4 mt-5">
                             <Col key={i} >
-                                <Card style={{ width: '500px', height: '400px bg-' }} className="shadow p-3 mb-5 bg-body rounded ">
+                                <Card style={{ width: '400px', height: '400px bg-' }} className="shadow p-3 mb-5 bg-body rounded ">
                                     <Card.Img variant="top" src={a.poster} />
                                     <Card.Body className="d-flex justify-content-center  flex-column" >
                                         <Card.Title className="d-flex justify-content-center">{a.title}</Card.Title>
