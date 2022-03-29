@@ -4,5 +4,8 @@
     
 }
 .logos__container{
-    margin-top: 300px;
+    margin-top: 14rem;
+}
+*{
+    font-family: ginToni;
 }

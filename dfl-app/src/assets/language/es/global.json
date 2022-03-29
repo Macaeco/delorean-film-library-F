@@ -14,7 +14,8 @@
         "email": "Correo electrónico",
         "password": "contraseña",
         "register":"Regístrate",
-        "login":"Identifícate"
+        "login":"Identifícate",
+        "cancel":"cancelar"
         
     },
     "login":{
@@ -23,6 +24,7 @@
         "login":"Identifícate",
         "userName": "Nombre de usuario",
         "register": "Regístrate"
+        
     },
     "profile":{
         "delete":"Borrar cuenta",
@@ -44,10 +46,14 @@
     },
     "lists": {
         "new": "¡¡Nuevo!!",
-        "top10": "top 10 mejores listas de tus películas favoritas",
-        "oniric":"Mejores 10 películas con temática onírica",
-        "inteligence":"Mejores 10 películas sobre inteligencia artificial",
-        "room":"Mejores películas que se desarollan en un solo escenario"
+        "top10": "¡Las mejores listas de películas que encontrarás!",
+        "oniric":"No te vas a creer lo que soñé anoche",
+        "inteligence":"¿Soy un Robot?",
+        "room":"¡¡Encerrados!!",
+        "conducta":"Las películas que conmocionaron a Spilb... Mala Conducta",
+        "neon":"Pon neon a la vida",
+        "drugs":"Pásate eso",
+        "follow":"Seguir"
         
     }
 

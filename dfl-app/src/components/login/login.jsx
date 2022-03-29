@@ -5,7 +5,9 @@ import './login.css';
 import { useTranslation } from "react-i18next";
 import { useState,useContext } from 'react';
 import { themeContext } from '../../context/themeContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate,Link } from 'react-router-dom';
+
+import './login.css';
 
 function Login() {
     const [t, i18n] = useTranslation('global');
@@ -39,13 +41,17 @@ function Login() {
                 .then(info=>{
                     
                      setLogName(info)
+                     
                     //  console.log(info)
                      localStorage.setItem('token',data.access_token)
-                     navigate(-1)
-
+                     localStorage.setItem("userName",info.userName)
+                    
+                     
+                     
+                    
                 })
                 // console.log(data.access_token)
-              
+                navigate(-1)
                 
             })
         
@@ -62,7 +68,7 @@ function Login() {
                     <Form.Control type="password" placeholder="Password" name="password" />
                 </FloatingLabel>
                 <Button variant="primary" type="submit" className='button'>{t('login.login')}</Button>{' '}
-                <Button variant="secondary" className='button'>{t('login.register')}</Button>{' '}
+               <Link  to="/register"><Button variant="secondary" className='button'>{t('login.register')}</Button>{' '}</Link> 
             </Form>
         </div>
 

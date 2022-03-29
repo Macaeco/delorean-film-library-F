@@ -17,6 +17,8 @@ function Lists(props) {
     const [favsFilms, setFavsFilms] = useState([])
     const [userL, setUserL] = useState([])
     const [theme, setTheme, changeTheme, filmsName, setFilmsName, logName, setLogName, access, updateAcces, filmsValue, setFilmsValue] = useContext(themeContext)
+    const [idLisMB, setidLisMB] = useState({})
+    
 
     useEffect(() => {
         fetch('http://localhost:4000/lists')
@@ -40,9 +42,12 @@ function Lists(props) {
                 setUserL(data.list)
                 localStorage.setItem('ID', data._id)
                 console.log(data)
+                data.list?setidLisMB(data.list): setidLisMB({})
+                
+                
             })
     }, [])
-    console.log(userL)
+   
 
 
 
@@ -51,8 +56,9 @@ function Lists(props) {
     const id = localStorage.getItem('ID')
     let token = localStorage.getItem('token')
 
- 
+    
     const idFunction = (e) => {
+        console.log(e)
         fetch(`http://localhost:4000/users/lists/${id}`, {
             method: 'PATCH',
             body: JSON.stringify(e),
@@ -64,33 +70,56 @@ function Lists(props) {
             })
 
     }
+
     const handleOnSubmmit = (e) => {
         e.preventDefault()
         const idList = {
-            idList: 'ONIRICS'
+            idOniric: 'ONIRICS'
         }
-        idFunction(idList)
+        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        console.log(idLisMB)
+        idFunction(idLisMB)
+
     }
     const handleInteligence = (e) => {
         e.preventDefault()
         const idList = {
-            idList: 'I.A LIST'
+            idInteligence: 'I.A LIST'
         }
-        idFunction(idList)
+        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        idFunction(idLisMB)
     }
     const handleRoom = (e) => {
         e.preventDefault()
         const idList = {
-            idList: 'ONE SPACE '
+            idRoom: 'ONE SPACE LIST  '
         }
-        idFunction(idList)
+        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        idFunction(idLisMB)
     }
     const handleNeon = (e) => {
         e.preventDefault()
         const idList = {
-            idList: 'NEON LIST'
+            idNeon: 'NEON LIST'
         }
+        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
         idFunction(idList)
+    }
+    const handleConducta = (e) => {
+        e.preventDefault()
+        const idList = {
+            idConducta: 'MALA CONDUCTA RULES'
+        }
+        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        idFunction(idLisMB)
+    }
+    const handleDrugs=(e) => {
+        e.preventDefault()
+        const idList = {
+            idDrugs: ' PÁSATE ESO LIST'
+        }
+        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        idFunction(idLisMB)
     }
 
 
@@ -135,7 +164,7 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} onClick={handleOnSubmmit} className="mt-2 ms-5">SEGUIR</Button>
+                        <Button variant={theme.secondary} onClick={handleOnSubmmit} className="mt-2 ms-5">{t("lists.follow")}</Button>
                     </Card.Body>
                 </Card>
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
@@ -162,7 +191,7 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} onClick={handleInteligence} className="mt-2 ms-5">SEGUIR</Button>
+                        <Button variant={theme.secondary} onClick={handleInteligence} className="mt-2 ms-5">{t("lists.follow")}</Button>
                     </Card.Body>
                 </Card>
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
@@ -189,7 +218,7 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} type="submit" onClick={handleRoom} className="mt-2 ms-5">SEGUIR</Button>
+                        <Button variant={theme.secondary} type="submit" onClick={handleRoom} className="mt-2 ms-5">{t("lists.follow")}</Button>
                     </Card.Body>
                 </Card>
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
@@ -216,7 +245,61 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} onClick={handleNeon}className="mt-2 ms-5">SEGUIR</Button>
+                        <Button variant={theme.secondary} onClick={handleNeon}className="mt-2 ms-5">{t("lists.follow")}</Button>
+                    </Card.Body>
+                </Card>
+                <Card className=" d-flex flex-column overflow-auto mt-4 "     >
+                    <Card.Header>{t("lists.conducta")}</Card.Header>
+                    <Card.Body>
+
+                        <Container className=" d-flex  flex-nowrap overflow-auto">
+                            {listFilms ?
+                                listFilms[4].malaConducta.map((a, i) => {
+                                    // console.log(a)
+                                    return (
+
+                                        <Card key={i} style={{ minWidth: '18rem', maxWidth: '18rem' }} className="card card-block mx-2" >
+                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }} />
+                                            <Card.Body>
+                                                <Card.Title >{a.nameEn}</Card.Title>
+                                            </Card.Body>
+                                        </Card>
+                                    )
+                                })
+                                :
+                                <Spinner animation="border" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </Spinner>}
+
+                        </Container>
+                        <Button variant={theme.secondary} onClick={handleConducta}className="mt-2 ms-5">{t("lists.follow")}</Button>
+                    </Card.Body>
+                </Card>
+                <Card className=" d-flex flex-column overflow-auto mt-4 "     >
+                    <Card.Header>{t("lists.drugs")}</Card.Header>
+                    <Card.Body>
+
+                        <Container className=" d-flex  flex-nowrap overflow-auto">
+                            {listFilms ?
+                                listFilms[5].drugs.map((a, i) => {
+                                    // console.log(a)
+                                    return (
+
+                                        <Card key={i} style={{ minWidth: '18rem', maxWidth: '18rem' }} className="card card-block mx-2" >
+                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }} />
+                                            <Card.Body>
+                                                <Card.Title >{a.nameEn}</Card.Title>
+                                            </Card.Body>
+                                        </Card>
+                                    )
+                                })
+                                :
+                                <Spinner animation="border" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </Spinner>}
+
+                        </Container>
+                        <Button variant={theme.secondary} onClick={handleDrugs}className="mt-2 ms-5">{t("lists.follow")}</Button>
                     </Card.Body>
                 </Card>
             </Container>

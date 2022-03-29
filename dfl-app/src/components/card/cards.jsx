@@ -14,6 +14,7 @@ import "./cards.css";
 import { themeContext } from "../../context/themeContext";
 import { useSearchParams } from "react-router-dom";
 
+
 // y si me hago la parte del if en una funcion?? guardo el segundo fetch en una constante  y hago asincrona la funcion con el await
 
 function Cards() {
@@ -27,76 +28,78 @@ function Cards() {
     // const filmSearch = 'canino'
     console.log(filmSearch)
     const [id, setID] = useState([])
+    
 
 
     // setInterval(function(){console.log(filmsValue)  }, 9000)
 
     // console.log(filmsValue)
     // /?s=el%20se%C3%B1or%20de%20los%20anillos'
+    console.log(process.env.REACT_APP_KEY)
 
 
+    useEffect(() => {
+        const fethMovies = async () => {
+            try {
+                const res = await fetch(`https://mdblist.p.rapidapi.com/?s=${filmSearch}`, {
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-host": "mdblist.p.rapidapi.com",
+                        'X-RapidAPI-Key':process.env.REACT_APP_KEY
+                        
+                    }
+                })
+                const dat = await res.json()
+                if (dat.search.length !== 0) {
+                    console.log(dat.search)
+                    const idarray = dat.search.map(a => a.id)
+                    console.log(idarray)
+                    function chunk(items, size) {
+                        const chunks = []
+                        items = [].concat(...items)
 
-    // useEffect(() => {
-    //     const fethMovies = async () => {
-    //         try {
-    //             const res = await fetch(`https://mdblist.p.rapidapi.com/?s=${filmSearch}`, {
-    //                 "method": "GET",
-    //                 "headers": {
-    //                     "x-rapidapi-host": "mdblist.p.rapidapi.com",
-    //                     
-    //                 }
-    //             })
-    //             const dat = await res.json()
-    //             if (dat.search.length !== 0) {
-    //                 console.log(dat.search)
-    //                 const idarray = dat.search.map(a => a.id)
-    //                 console.log(idarray)
-    //                 function chunk(items, size) {
-    //                     const chunks = []
-    //                     items = [].concat(...items)
-
-    //                     while (items.length) {
-    //                         chunks.push(
-    //                             items.splice(0, size)
-    //                         )
-    //                     }
-    //                     return chunks
-    //                 }
-    //                 const arraychuck = chunk(idarray, 3)
-    //                 console.log(arraychuck)
-    //                 setFilmsName('')
-    //                 arraychuck.map((a,i) => {
-    //                     a.map(
-    //                         a => {
-    //                             setTimeout(() => {
-    //                                 const fetchMov2 = async () => {
-    //                                     try {
-    //                                         const res = await fetch(`https://mdblist.p.rapidapi.com/?i=${a}`, {
-    //                                             "method": "GET",
-    //                                             "headers": {
-    //                                                 "x-rapidapi-host": "mdblist.p.rapidapi.com",
-    //                                                 
-    //                                             }
-    //                                         })
-    //                                         const dat = await res.json()
-    //                                         setFilmsName((filmsName) => [...filmsName, dat])
-    //                                         console.log(dat)
-    //                                     } catch (err) {
-    //                                         console.log(err)
-    //                                     }
-    //                                 }
-    //                                 fetchMov2()
-    //                             }, i*1500)
-    //                         }
-    //                     )
-    //                 })
-    //             }
-    //         } catch (err) {
-    //             console.log(err)
-    //         }
-    //     }
-    //     fethMovies()
-    // }, [filmSearch])
+                        while (items.length) {
+                            chunks.push(
+                                items.splice(0, size)
+                            )
+                        }
+                        return chunks
+                    }
+                    const arraychuck = chunk(idarray, 3)
+                    console.log(arraychuck)
+                    setFilmsName('')
+                    arraychuck.map((a,i) => {
+                        a.map(
+                            a => {
+                                setTimeout(() => {
+                                    const fetchMov2 = async () => {
+                                        try {
+                                            const res = await fetch(`https://mdblist.p.rapidapi.com/?i=${a}`, {
+                                                "method": "GET",
+                                                "headers": {
+                                                    "x-rapidapi-host": "mdblist.p.rapidapi.com",
+                                                    'X-RapidAPI-Key': process.env.REACT_APP_KEY
+                                                }
+                                            })
+                                            const dat = await res.json()
+                                            setFilmsName((filmsName) => [...filmsName, dat])
+                                            console.log(dat)
+                                        } catch (err) {
+                                            console.log(err)
+                                        }
+                                    }
+                                    fetchMov2()
+                                }, i*1500)
+                            }
+                        )
+                    })
+                }
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        fethMovies()
+    }, [filmSearch])
     console.log(filmsName)
 
     const [show, setShow] = useState(false);

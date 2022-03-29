@@ -51,6 +51,8 @@ function Profile() {
                 .then(data => {
                     // console.log(data)
                     localStorage.removeItem('token')
+                    localStorage.removeItem('ID')
+                    localStorage.removeItem('userName')
                     navigate('/')
                 })
         }
@@ -73,6 +75,8 @@ function Profile() {
             .then(j => j.json())
             .then(data => {
                 console.log(data)
+                
+                 
                 navigate('/profile')
             })
 
@@ -114,8 +118,9 @@ function Profile() {
 
 
 
+
     return (
-        <Container fluid className="card__profile__container m-0 p-0" fluid  >
+        <Container fluid className="card__profile__container m-0 p-0"  >
 
             <Col>
                 <div className="pt-5 ps-5 d-flex flex-row ">
@@ -140,7 +145,7 @@ function Profile() {
                                             <Form className="d-flex" onSubmit={handlePatch}>
                                                 <FormControl
                                                     type="search"
-                                                    placeholder={t("header.search")}
+                                                    placeholder=" .  .  . "
                                                     className="me-2"
                                                     aria-label="Search"
                                                     name="userName"
@@ -177,7 +182,13 @@ function Profile() {
 
 
                                 <footer className="blockquote-footer">
-                                    <cite title="Source Title">{user.list}</cite>
+                                    {user?.list?.idOniric?<p>{user?.list?.idOniric}</p>: ''}
+                                    {user?.list?.idInteligence?<p>{user?.list?.idInteligence}</p>: ''}
+                                    {user?.list?.idNeon?<p>{user?.list?.idNeon}</p>: ''}
+                                    {user?.list?.idDrugs?<p>{user?.list?.idDrugs}</p>: ''}
+                                    {user?.list?.idRoom?<p>{user?.list?.idRoom}</p>: ''}
+                                    {/* <cite title="Source Title">{user.list.idNeon}</cite> */}
+                                    {/* <cite title="Source Title">{user.list.idOniric}</cite> */}
                                 </footer>
 
                             </Card.Body>

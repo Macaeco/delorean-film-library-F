@@ -13,7 +13,8 @@
         "email": "email",
         "password": "password",
         "register": "Create an new account",
-        "login": "Login"
+        "login": "Login",
+        "cancel": "cancel"
     },
     "login": {
         "email": "Email address",
@@ -40,10 +41,14 @@
     },
  "lists": {
         "new": "New!!",
-        "top10": "Top 10 lists of your favorite movies",
-        "oniric":"Best dream movies",
-        "inteligence":"Bestartificial intelligence movies",
-        "room":"Best movies that take place on a single stage"
+        "top10": "The best lists of movies you will ever find",
+        "oniric":"You won't believe what I dreamed last night.",
+        "inteligence":"Am I a robot?",
+        "room":"LOCKED IN!",
+        "conducta":"The movies that shocked Spilb..... Misconduct",
+        "neon":"Put neon to life",
+        "drugs":"Pass that on",
+        "follow":"follow"
 
     }
 }
