@@ -4,6 +4,7 @@ import Spinner from "react-bootstrap/esm/Spinner";
 import { useTranslation } from "react-i18next";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 import { useState, useEffect } from "react"
 import { useContext } from "react";
 import { themeContext } from "../../context/themeContext";
@@ -18,7 +19,7 @@ function Lists(props) {
     const [userL, setUserL] = useState([])
     const [theme, setTheme, changeTheme, filmsName, setFilmsName, logName, setLogName, access, updateAcces, filmsValue, setFilmsValue] = useContext(themeContext)
     const [idLisMB, setidLisMB] = useState({})
-    
+
 
     useEffect(() => {
         fetch('http://localhost:4000/lists')
@@ -42,12 +43,12 @@ function Lists(props) {
                 setUserL(data.list)
                 localStorage.setItem('ID', data._id)
                 console.log(data)
-                data.list?setidLisMB(data.list): setidLisMB({})
-                
-                
+                data.list ? setidLisMB(data.list) : setidLisMB({})
+
+
             })
     }, [])
-   
+
 
 
 
@@ -56,7 +57,7 @@ function Lists(props) {
     const id = localStorage.getItem('ID')
     let token = localStorage.getItem('token')
 
-    
+
     const idFunction = (e) => {
         console.log(e)
         fetch(`http://localhost:4000/users/lists/${id}`, {
@@ -76,7 +77,7 @@ function Lists(props) {
         const idList = {
             idOniric: 'ONIRICS'
         }
-        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        setidLisMB(idLisMB => Object.assign(idLisMB, idList))
         console.log(idLisMB)
         idFunction(idLisMB)
 
@@ -86,7 +87,7 @@ function Lists(props) {
         const idList = {
             idInteligence: 'I.A LIST'
         }
-        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        setidLisMB(idLisMB => Object.assign(idLisMB, idList))
         idFunction(idLisMB)
     }
     const handleRoom = (e) => {
@@ -94,7 +95,7 @@ function Lists(props) {
         const idList = {
             idRoom: 'ONE SPACE LIST  '
         }
-        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        setidLisMB(idLisMB => Object.assign(idLisMB, idList))
         idFunction(idLisMB)
     }
     const handleNeon = (e) => {
@@ -102,7 +103,7 @@ function Lists(props) {
         const idList = {
             idNeon: 'NEON LIST'
         }
-        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        setidLisMB(idLisMB => Object.assign(idLisMB, idList))
         idFunction(idList)
     }
     const handleConducta = (e) => {
@@ -110,21 +111,21 @@ function Lists(props) {
         const idList = {
             idConducta: 'MALA CONDUCTA RULES'
         }
-        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        setidLisMB(idLisMB => Object.assign(idLisMB, idList))
         idFunction(idLisMB)
     }
-    const handleDrugs=(e) => {
+    const handleDrugs = (e) => {
         e.preventDefault()
         const idList = {
             idDrugs: ' PÁSATE ESO LIST'
         }
-        setidLisMB(idLisMB=>Object.assign(idLisMB,idList))
+        setidLisMB(idLisMB => Object.assign(idLisMB, idList))
         idFunction(idLisMB)
     }
 
 
 
-    // console.log(listFilms)
+    const [show, setShow] = useState(true);
 
     return (
         <Container className=" card__list__container container__lists ms-0 mt-0 ms-0  "  >
@@ -140,7 +141,14 @@ function Lists(props) {
                 <hr></hr>
             </Container>
             <Container style={{ minWidth: '2rem', maxWidth: '50rem', }} >
+
+
+
+
+
                 <Card className=" d-flex flex-column overflow-auto mt-4 "    >
+
+
                     <Card.Header>{t("lists.oniric")}</Card.Header>
                     <Card.Body>
 
@@ -165,8 +173,24 @@ function Lists(props) {
 
                         </Container>
                         <Button variant={theme.secondary} onClick={handleOnSubmmit} className="mt-2 ms-5">{t("lists.follow")}</Button>
+                        {!show && <Button variant={theme.secondary} onClick={() => setShow(true)} className="mt-2 ms-5">?</Button>}
                     </Card.Body>
+                    <Alert show={show} variant="success">
+                        <p>
+                            {t("lists.onirics")}
+                        </p>
+                        <hr />
+                        <div className="d-flex justify-content-end">
+                            <Button onClick={() => setShow(false)} variant="outline-success">
+                               {t("lists.close")}
+                            </Button>
+                        </div>
+                    </Alert>
                 </Card>
+
+
+
+
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
                     <Card.Header>{t("lists.inteligence")}</Card.Header>
                     <Card.Body>
@@ -192,8 +216,23 @@ function Lists(props) {
 
                         </Container>
                         <Button variant={theme.secondary} onClick={handleInteligence} className="mt-2 ms-5">{t("lists.follow")}</Button>
+                        {!show && <Button variant={theme.secondary} onClick={() => setShow(true)} className="mt-2 ms-5">?</Button>}
                     </Card.Body>
+                    <Alert show={show} variant="success">
+                        <p>
+                            {t("lists.inteligences")}
+                        </p>
+                        <hr />
+                        <div className="d-flex justify-content-end">
+                            <Button onClick={() => setShow(false)} variant="outline-success">
+                               {t("lists.close")}
+                            </Button>
+                        </div>
+                    </Alert>
                 </Card>
+
+
+
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
                     <Card.Header>{t("lists.room")}</Card.Header>
                     <Card.Body >
@@ -219,8 +258,25 @@ function Lists(props) {
 
                         </Container>
                         <Button variant={theme.secondary} type="submit" onClick={handleRoom} className="mt-2 ms-5">{t("lists.follow")}</Button>
+                        {!show && <Button variant={theme.secondary} onClick={() => setShow(true)} className="mt-2 ms-5">?</Button>}
                     </Card.Body>
+                    <Alert show={show} variant="success">
+                        <p>
+                            {t("lists.rooms")}
+                        </p>
+                        <hr />
+                        <div className="d-flex justify-content-end">
+                            <Button onClick={() => setShow(false)} variant="outline-success">
+                               {t("lists.close")}
+                            </Button>
+                        </div>
+                    </Alert>
                 </Card>
+
+
+
+
+
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
                     <Card.Header>{t("lists.inteligence")}</Card.Header>
                     <Card.Body>
@@ -245,9 +301,24 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} onClick={handleNeon}className="mt-2 ms-5">{t("lists.follow")}</Button>
+                        <Button variant={theme.secondary} onClick={handleNeon} className="mt-2 ms-5">{t("lists.follow")}</Button>
+                        {!show && <Button variant={theme.secondary} onClick={() => setShow(true)} className="mt-2 ms-5">?</Button>}
                     </Card.Body>
+                    <Alert show={show} variant="success">
+                        <p>
+                            {t("lists.neons")}
+                        </p>
+                        <hr />
+                        <div className="d-flex justify-content-end">
+                            <Button onClick={() => setShow(false)} variant="outline-success">
+                               {t("lists.close")}
+                            </Button>
+                        </div>
+                    </Alert>
                 </Card>
+
+
+
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
                     <Card.Header>{t("lists.conducta")}</Card.Header>
                     <Card.Body>
@@ -272,9 +343,24 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} onClick={handleConducta}className="mt-2 ms-5">{t("lists.follow")}</Button>
+                        <Button variant={theme.secondary} onClick={handleConducta} className="mt-2 ms-5">{t("lists.follow")}</Button>
+                        {!show && <Button variant={theme.secondary} onClick={() => setShow(true)} className="mt-2 ms-5">?</Button>}
                     </Card.Body>
+                    <Alert show={show} variant="success">
+                        <p>
+                            {t("lists.conductas")}
+                        </p>
+                        <hr />
+                        <div className="d-flex justify-content-end">
+                            <Button onClick={() => setShow(false)} variant="outline-success">
+                               {t("lists.close")}
+                            </Button>
+                        </div>
+                    </Alert>
                 </Card>
+
+
+
                 <Card className=" d-flex flex-column overflow-auto mt-4 "     >
                     <Card.Header>{t("lists.drugs")}</Card.Header>
                     <Card.Body>
@@ -299,9 +385,53 @@ function Lists(props) {
                                 </Spinner>}
 
                         </Container>
-                        <Button variant={theme.secondary} onClick={handleDrugs}className="mt-2 ms-5">{t("lists.follow")}</Button>
+                        <Button variant={theme.secondary} onClick={handleDrugs} className="mt-2 ms-5">{t("lists.follow")}</Button>
+                        {!show && <Button variant={theme.secondary} onClick={() => setShow(true)} className="mt-2 ms-5">?</Button>}
                     </Card.Body>
+                    <Alert show={show} variant="success">
+                        <p>
+                            {t("lists.drugss")}
+                        </p>
+                        <hr />
+                        <div className="d-flex justify-content-end">
+                            <Button onClick={() => setShow(false)} variant="outline-success">
+                               {t("lists.close")}
+                            </Button>
+                        </div>
+                    </Alert>
                 </Card>
+
+
+                {/* <Card className=" d-flex flex-column overflow-auto mt-4 mb-5"     >
+                    <Card.Header>{t("lists.drugs")}</Card.Header>
+                    <Card.Body>
+
+                        <Container className=" d-flex  flex-nowrap overflow-auto">
+                            {listFilms ?
+                                listFilms[6].drugs.map((a, i) => {
+                                    // console.log(a)
+                                    return (
+
+                                        <Card key={i} style={{ minWidth: '18rem', maxWidth: '18rem' }} className="card card-block mx-2" >
+                                            <Card.Img variant="top" src={a.img} style={{ minWidth: '10rem' }} />
+                                            <Card.Body>
+                                                <Card.Title >{a.nameEn}</Card.Title>
+                                            </Card.Body>
+                                        </Card>
+                                    )
+                                })
+                                :
+                                <Spinner animation="border" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </Spinner>}
+
+                        </Container>
+                        <Button variant={theme.secondary} onClick={handleDrugs} className="mt-2 ms-5">{t("lists.follow")}</Button>
+                    </Card.Body>
+                </Card> */}
+
+
+
             </Container>
 
 

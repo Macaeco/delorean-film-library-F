@@ -1,9 +1,18 @@
 .footer__container{
-    background-color: black;
-    height: 5rem;
+    background-color:#eecfcf;
+    height: 4rem;
     margin: 0;
     padding: 0;
     width: 100%;
+    margin-top: auto;
+    min-height: 2rem;
+    min-width: 100vw;
+    background-size: cover;
+    /* border-top:solid;
+    border-top-color: grey;
+    border-top-width: 10%; */
+    color: BLACK;
 
 }
+
 

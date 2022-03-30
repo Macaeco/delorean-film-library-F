@@ -5,7 +5,8 @@
         "profile":"PERFIL",
         "search":"Buscar...",
         "register": "REGISTRO",
-        "login":"ENTRA"
+        "login":"ENTRA",
+        "contact":"Contacta con nosotros : "
     },
 
     "register":{
@@ -53,7 +54,14 @@
         "conducta":"Las películas que conmocionaron a Spilb... Mala Conducta",
         "neon":"Pon neon a la vida",
         "drugs":"Pásate eso",
-        "follow":"Seguir"
+        "follow":"Seguir",
+        "onirics":"Las mejores películas que vas a encontrar con tematica onirica que vas a encontrar",
+        "inteligences":"Las mejores películas sobre inteligencia Artifcial",
+        "rooms":"Peliculas que se desarollan en un solo espacio ",
+        "neons":"Películas con fotografía de luces de neon",
+        "conductas":"Las películas favoritas de la MalaCnducta",
+        "drugss":"Mejores películas sobre drogas y otras adicciones",
+        "close":"¡Cerrar!"
         
     }
 

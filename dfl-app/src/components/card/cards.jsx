@@ -15,7 +15,7 @@ import { themeContext } from "../../context/themeContext";
 import { useSearchParams } from "react-router-dom";
 
 
-// y si me hago la parte del if en una funcion?? guardo el segundo fetch en una constante  y hago asincrona la funcion con el await
+
 
 function Cards() {
     // let filmSearch = 'matrix'
@@ -29,14 +29,6 @@ function Cards() {
     console.log(filmSearch)
     const [id, setID] = useState([])
     
-
-
-    // setInterval(function(){console.log(filmsValue)  }, 9000)
-
-    // console.log(filmsValue)
-    // /?s=el%20se%C3%B1or%20de%20los%20anillos'
-    console.log(process.env.REACT_APP_KEY)
-
 
     useEffect(() => {
         const fethMovies = async () => {
@@ -178,7 +170,7 @@ function Cards() {
                     )
                 })
                 :
-                <Spinner animation="border" role="status">
+                <Spinner animation="border" role="status" className="spinner__cards">
                     <span className="visually-hidden">Loading...</span>
                 </Spinner>}
         </Container>

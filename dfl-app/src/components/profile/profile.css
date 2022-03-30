@@ -3,5 +3,6 @@
     background-color: rgb(17, 17, 17);
     margin-top: auto;
     min-height: 100vh;
+    min-width: 100vw;
     background-size: cover;
 }

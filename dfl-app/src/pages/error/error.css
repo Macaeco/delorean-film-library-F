@@ -2,4 +2,6 @@
     background-color: rgb(252,254,252);
     width: cover;
     height: auto;
+    color:darkred;
+    font-weight: bold;
 }

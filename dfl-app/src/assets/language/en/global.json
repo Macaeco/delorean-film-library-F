@@ -5,7 +5,8 @@
         "profile": "PROFILE",
         "search": "Search...",
         "register": " REGISTER",
-        "login": "LOGIN"
+        "login": "LOGIN",
+        "contact":"contact us :"
     },
     "register": {
         "name": "name",
@@ -48,7 +49,14 @@
         "conducta":"The movies that shocked Spilb..... Misconduct",
         "neon":"Put neon to life",
         "drugs":"Pass that on",
-        "follow":"follow"
+        "follow":"follow",
+        "onirics":"The best oneiric themed movies you'll ever find",
+        "inteligences":"Las mejores películas sobre inteligencia Artifcial",
+        "rooms":"Films that take place in a single location ",
+        "neons":"Films with neon light photograph",
+        "conductas":"MalaCnducta's favorite movies de la MalaCnducta",
+        "drugss":"Best movies about drugs and other addictions",
+        "close":"close!"
 
     }
 }

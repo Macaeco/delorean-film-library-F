@@ -16,6 +16,8 @@ import Validate from './components/validate/validate';
 import ProtectedPage from './components/private-routes/privateRoutes';
 import Footer from './components/footer/footer';
 import Error404 from './pages/error/error';
+import LegalPages from './pages/error/legalPages';
+import LegalPagess from './pages/error/legalPagess';
 
 
 
@@ -38,12 +40,14 @@ function App() {
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/validate" element={<Validate></Validate>}></Route>
+          <Route path="/legalPages" element={<LegalPages></LegalPages>}></Route>
+          <Route path="/legalPagess" element={<LegalPagess></LegalPagess>}></Route>
           <Route path="/*" element={<Error404></Error404>}></Route>
 
         </Routes>
         {/* <Cards></Cards> */}
 
-        {/* <Footer></Footer > */}
+        <Footer></Footer >
       </BrowserRouter>
     </>
   );
