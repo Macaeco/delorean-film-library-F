@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 import legal from "./icons8-cookies-64.png"
 import cookie from "./icons8-documento-48.png"
 function Footer() {
-
+ 
     return (
         <Row sticky="botton" >
             <Col className="footer__container d-flex flex-row justify-content-center  ">

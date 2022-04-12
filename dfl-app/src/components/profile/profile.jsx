@@ -43,7 +43,7 @@ function Profile() {
 
     const handleDelete = () => {
         {
-            fetch('http://localhost:4000/users', {
+            fetch('/users', {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             })
@@ -90,22 +90,7 @@ function Profile() {
     }
 
 
-    // useEffect(() => {
-
-    //     fetch('http://localhost:4000/', {
-    //         method: 'GET', 
-    //     })
-    //         .then(j => j.json())
-    //         .then(data => {
-    //             setListsFollowed(data)
-
-
-    //             console.log(data)
-
-    //         })
-
-    // }, [])
-
+    
 
     console.log(user)
     const userLarr = [user.list]
