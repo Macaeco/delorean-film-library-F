@@ -46,23 +46,27 @@ function Cards() {
                     console.log(dat.search)
                     const idarray = dat.search.map(a => a.id)
                     console.log(idarray)
-                    function chunk(items, size) {
-                        const chunks = []
-                        items = [].concat(...items)
+                    const arraychuck = idarray.slice(0,1)
 
-                        while (items.length) {
-                            chunks.push(
-                                items.splice(0, size)
-                            )
-                        }
-                        return chunks
-                    }
-                    const arraychuck = chunk(idarray, 3)
+                    // FUTURIBLE. estoy buscando el BUG por el que cuando pinta mas de una card salen defectuosas. hasta entonces solo pintaré una por busqueda
+
+                    // function chunk(items, size) {
+                    //     const chunks = []
+                    //     items = [].concat(...items)
+
+                    //     while (items.length) {
+                    //         chunks.push(
+                    //             items.splice(0, size)
+                    //         )
+                    //     }
+                    //     return chunks
+                    // }
+                    // const arraychuck = chunk(idarray, 3)
                     console.log(arraychuck)
                     setFilmsName('')
                     arraychuck.map((a,i) => {
-                        a.map(
-                            a => {
+                        // a.map(
+                        //     a => {
                                 setTimeout(() => {
                                     const fetchMov2 = async () => {
                                         try {
@@ -82,8 +86,8 @@ function Cards() {
                                     }
                                     fetchMov2()
                                 }, i*1500)
-                            }
-                        )
+                        //     }
+                        // )
                     })
                 }
             } catch (err) {
