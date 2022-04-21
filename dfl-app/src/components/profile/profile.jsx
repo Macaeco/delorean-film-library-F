@@ -33,7 +33,7 @@ function Profile() {
             .then(data => {
                 setUser(data)
                 localStorage.setItem('ID', data._id)
-                console.log(data)
+                // console.log(data)
 
 
             })
@@ -43,7 +43,7 @@ function Profile() {
 
     const handleDelete = () => {
         {
-            fetch('/users', {
+            fetch('http://localhost:4000/users', {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             })
@@ -64,7 +64,7 @@ function Profile() {
         const userData = {
             userName: e.target.userName.value,
         }
-        console.log(userData)
+        // console.log(userData)
 
         fetch(`http://localhost:4000/users/${id}`, {
             method: 'PATCH',
@@ -74,7 +74,7 @@ function Profile() {
         })
             .then(j => j.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 
                  
                 navigate('/profile')
@@ -94,7 +94,7 @@ function Profile() {
 
     console.log(user)
     const userLarr = [user.list]
-    console.log(userLarr)
+    // console.log(userLarr)
 
 
     const [show, setShow] = useState(false);
@@ -105,23 +105,23 @@ function Profile() {
 
 
     return (
-        <Container fluid className="card__profile__container m-0 p-0"  >
+        <Container fluid className="card__profile__container "  >
 
             <Col>
-                <div className="pt-5 ps-5 d-flex flex-row ">
-                    <Card className="m-0 shadow p-3 mb-5 bg-body rounded" style={{ width: '80%', height: 'auto' }}>
-                        <Card.Img variant={theme.secondary} src={gif1} className="m-5 rounded mb-0" />
+                <div className="pt-4 ps-4 d-flex flex-row ">
+                    <Card className="m-0 shadow p-1 bg-body rounded image_prof" style={{ width: '60rem', height: '32rem' }}>
+                        <Card.Img variant={theme.secondary} style={{ width: "22rem", height: 'auto' }} src={gif1} className="mt-3 rounded mb-0 " />
                         <Container fluid >
                             <Card.Body className="d-flex flex-row">
-                                <Container className=" flex-column d-flex  gap-4 m-1 ">
+                                <Container className=" flex-column d-flex  gap-3 m-1 ">
                                     <Card.Title className="d-flex flex-row-reverse"> {user.name}</Card.Title>
                                     <Card.Text className="d-flex flex-row-reverse">{user.userName} </Card.Text>
                                     <Card.Text className="d-flex flex-row-reverse" >{user.email} </Card.Text>
 
                                 </Container>
                                 <Container className="d-flex flex-column justify-content-center gap-4 m-1">
-                                    <Button style={{ width: "65%", height: '4vh' }} variant={theme.secondary}>{t("profile.edit")}</Button>
-                                    <Button style={{ width: "65%", height: '4vh' }} onClick={handleShow} variant={theme.secondary}>{t("profile.edit")}</Button>
+                                    <Button style={{ width: "5rem", height: '2rem' }} variant={theme.secondary}>{t("profile.edit")}</Button>
+                                    <Button style={{ width: "5rem", height: '2rem' }}onClick={handleShow} variant={theme.secondary}>{t("profile.edit")}</Button>
                                     <Modal centered show={show} onHide={handleClose} >
                                         <Modal.Header closeButton>
                                             <Modal.Title>{t("profile.upload")}</Modal.Title>
@@ -144,14 +144,14 @@ function Profile() {
 
                                     </Modal>
 
-                                    <Button style={{ width: "65%", height: '4vh' }} variant={theme.secondary}>{t("profile.edit")}</Button>
+                                    <Button style={{ width: "5rem", height: '2rem' }} variant={theme.secondary}>{t("profile.edit")}</Button>
                                 </Container>
 
 
                             </Card.Body>
                             <hr></hr>
-                            <Form className="d-flex  flex-row justify-content-center m-2 gap-5">
-                                <Button variant={theme.secondary} style={{ height: '10vh' }} onClick={handleDelete}>{t("profile.delete")}</Button>{' '}
+                            <Form className="d-flex  flex-row justify-content-center m-1 gap-5">
+                                <Button variant={theme.secondary} style={{ height: '3rem' }} onClick={handleDelete}>{t("profile.delete")}</Button>{' '}
                                 <Button variant={theme.secondary} onClick={handleCloseSession}>{t("profile.close")}</Button>{' '}
                             </Form>
                         </Container>
@@ -172,6 +172,7 @@ function Profile() {
                                     {user?.list?.idNeon?<p>{user?.list?.idNeon}</p>: ''}
                                     {user?.list?.idDrugs?<p>{user?.list?.idDrugs}</p>: ''}
                                     {user?.list?.idRoom?<p>{user?.list?.idRoom}</p>: ''}
+                                    {user?.list?.idRConducta?<p>{user?.list?.idConducta}</p>: ''}
                                     {/* <cite title="Source Title">{user.list.idNeon}</cite> */}
                                     {/* <cite title="Source Title">{user.list.idOniric}</cite> */}
                                 </footer>

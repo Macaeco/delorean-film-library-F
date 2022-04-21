@@ -14,8 +14,8 @@ import imagen10 from "../carrusel/posters/original (10).jpg"
 
 function Carrusel() {
     return (
-        <Container className="pt-4" >
-            <Carousel className={'mt-5 pt-3 me-5 shadow p-3 mb-5 bg-body rounded'} id="carrousel_container">
+        <Container  style={{ width: '35rem' }} >
+            <Carousel className={' pt-3  shadow p-3 mb-5 bg-body rounded'} id="carrousel_container">
                 <Carousel.Item interval={100000} >
                     <img
                         className="d-block w-100"

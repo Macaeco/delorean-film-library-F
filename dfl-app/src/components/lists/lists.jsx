@@ -27,7 +27,7 @@ function Lists(props) {
             .then(data => {
 
                 setListFilms(data)
-                console.log(data)
+                // console.log(data)
 
 
             })
@@ -42,7 +42,7 @@ function Lists(props) {
             .then(data => {
                 setUserL(data.list)
                 localStorage.setItem('ID', data._id)
-                console.log(data)
+                // console.log(data)
                 data.list ? setidLisMB(data.list) : setidLisMB({})
 
 
@@ -59,7 +59,7 @@ function Lists(props) {
 
 
     const idFunction = (e) => {
-        console.log(e)
+        // console.log(e)
         fetch(`http://localhost:4000/users/lists/${id}`, {
             method: 'PATCH',
             body: JSON.stringify(e),
@@ -78,7 +78,7 @@ function Lists(props) {
             idOniric: 'ONIRICS'
         }
         setidLisMB(idLisMB => Object.assign(idLisMB, idList))
-        console.log(idLisMB)
+        // console.log(idLisMB)
         idFunction(idLisMB)
 
     }
@@ -126,10 +126,10 @@ function Lists(props) {
 
 
 
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
 
     return (
-        <Container className=" card__list__container container__lists ms-0 mt-0 ms-0  "  >
+        <Container className=" card__list__container container__lists ms-0 mt-0 ms-0  pb-5 "  >
 
 
             {/* <Container className="container__lists pt-0 gap-3" > */}
@@ -362,7 +362,7 @@ function Lists(props) {
 
 
 
-                <Card className=" d-flex flex-column overflow-auto mt-4 "     >
+                <Card className=" d-flex flex-column overflow-auto mt-4  "     >
                     <Card.Header>{t("lists.drugs")}</Card.Header>
                     <Card.Body>
 

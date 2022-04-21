@@ -1,6 +1,8 @@
 #modal__idFull{
    min-height: fit-content;
-    max-width: 70%;
+    max-width: 60%;
+    /* max-height: 70rem; */
+
 
 }
 .spinner__cards{

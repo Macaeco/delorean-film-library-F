@@ -1,0 +1,11 @@
+.container__curiosity{
+    width: 20rem;
+    min-height: 20rem;
+    height: fit-content;
+    background-color: aliceblue;
+    border-radius: 2%;
+    opacity: 0.80;
+}
+#card_id{
+    opacity: 1;
+}

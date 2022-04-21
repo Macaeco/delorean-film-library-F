@@ -1,34 +1,44 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
 
-.button{
+.button {
     margin: 10px;
 }
 
-.login__container{
-    background-image:url("../register/fondo.png");
-    width: 40%;
-    border: solid;
+.login__container {
+    /* background-image:url("../profile/theater-1713816_1280.jpg"); */
+    width: 35rem;
     border-width: 1px;
-    border-color: lightslategray;
     border-radius: 5px;
     padding: 10px;
-    
-}
-.all__input{
-    margin: 20px;
-    border-style:solid;
+    margin-top: 3rem;
+    margin-left: 10rem;
 
-    
+
 }
-.mail__login{
-    margin-top: auto;
-    min-height: 100vh;
-    background-size: cover;
+
+.all__input {
+  
+    border-style: solid;
+    border-color: rgb(237, 105, 90);
+    border-width: 5px;
+
+
+}
+
+.mail__login {
+    min-height: 83vh;
+    /* background-size: cover; */
     background-image: url("../register/fondomarmol.webp");
-    
+    background-image: url("../landing-page/descarga.png");
+    min-width: 100%;
+    display: flex;
+
+}
+.badge__{
+    margin-left: 13.5rem;
 }

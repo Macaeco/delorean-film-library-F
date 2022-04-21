@@ -1,8 +1,12 @@
 .card__profile__container{
-    background-image: url("./wehe.jpg");
+    background-image: url("../landing-page/descarga.png");
     background-color: rgb(17, 17, 17);
-    margin-top: auto;
-    min-height: 100vh;
+    /* margin-top: auto; */
+    max-height: 85vh;
     min-width: 100vw;
-    background-size: cover;
+    /* background-size: cover; */
+}
+.image_prof{
+    display: flex;
+    align-items: center;
 }

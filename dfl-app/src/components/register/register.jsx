@@ -32,9 +32,10 @@ function Register() {
             .then(d => d.json())
             .then((data) => {
                 updateUserData(...Userdata, user)
-                navigate('/')
+               
             })
         // console.log(user)
+        navigate(-1)
     }
     const handleCancel = e => {
         e.preventDefault()
@@ -42,7 +43,7 @@ function Register() {
     }
     return (
         <div className="main__reggister">
-            <Col  xs={12} md={7} sm={8} lg={ 7} xl={7} xxl={5}>
+            <Col  style={{ width: '35rem', height: '20rem bg-' }}>
                 <Container  >
                     <Form onSubmit={handleOnSubmit} className={'pt-5 ps-5' }>
                         <div className="register__container">

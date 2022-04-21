@@ -58,5 +58,12 @@
         "drugss":"Best movies about drugs and other addictions",
         "close":"close!"
 
+    },
+    "trailers":{
+        "scene":  " What a scene!" ,
+        "curius" :"How curious!"
+
+
     }
+
 }

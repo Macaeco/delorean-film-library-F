@@ -63,6 +63,12 @@
         "drugss":"Mejores películas sobre drogas y otras adicciones",
         "close":"¡Cerrar!"
         
+    },
+    "trailers":{
+        "scene":  " ¡Qué escenas!" ,
+        "curius" :"¡Que curioso!"
+
+
     }
 
 

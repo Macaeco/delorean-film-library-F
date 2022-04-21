@@ -8,6 +8,10 @@ import ControlledCarousel from "../carrusel/carrusel";
 import Carrusel from "../carrusel/carrusel";
 import { Link, useLocation } from "react-router-dom";
 import Header from "../header/header";
+import Col from 'react-bootstrap/Col'
+import Curiosity from "../curiosity/curiosity";
+import Trailers from "../trailers/trailers";
+
 // import { useLocation } from "react-router-dom";
 
 
@@ -19,13 +23,29 @@ function LandingPage() {
         <React.Fragment>
             {/* <Header></Header> */}
 
-            <Container id="main__container" fluid className="main__landing d-flex flex-row ps-5 " >
-            
-                <Carrusel ></Carrusel>
-                <Cards className="carrusel__landing"></Cards>
+
+            <Container fluid className="main__landing d-flex   ps-5 pt-5"  >
+
+                <Container style={{ width: '30rem' }}>
+                    <Carrusel ></Carrusel>
+                    <Trailers></Trailers>
+                </Container>
+
+
+                <Cards ></Cards>
+                <Curiosity></Curiosity>
+
+
+
+
+
+
+
+
             </Container>
+
         </React.Fragment>
-        
+
     )
 }
 export default LandingPage;

@@ -38,15 +38,15 @@ function Header() {
 
     const handleSearchFilm = (e) => {
         e.preventDefault()
-        // console.log(e.target.searchFilm.value)
+        console.log(e.target.searchFilm.value)
         setFilmsValue(e.target.searchFilm.value)
-        // console.log(filmsValue)
+        console.log(filmsValue)
         navigate(`/?name=${e.target.searchFilm.value}`)
     }
 
 
-    console.log(filmsValue)
-    console.log(logName)
+    // console.log(filmsValue)
+    // console.log(logName)
     const nameUser = localStorage.getItem('userName')
 
 
