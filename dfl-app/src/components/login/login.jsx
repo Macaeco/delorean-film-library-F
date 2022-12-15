@@ -27,14 +27,14 @@ function Login() {
         }
         // console.log(user)
 
-        fetch('http://localhost:4000/auth/login', {
+        fetch('https://young-headland-81478.herokuapp.com/auth/login', {
             method: 'POST',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' }
         })
             .then(d => d.json())
             .then((data) => {
-                fetch('http://localhost:4000/users', {
+                fetch('https://young-headland-81478.herokuapp.com/users', {
                     method: 'GET',
                     headers: { 'Authorization': `Bearer ${data.access_token}` }
 

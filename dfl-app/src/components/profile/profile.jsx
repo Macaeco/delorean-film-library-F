@@ -25,7 +25,7 @@ function Profile() {
 
     useEffect(() => {
 
-        fetch('http://localhost:4000/users', {
+        fetch('https://young-headland-81478.herokuapp.com/users', {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -43,7 +43,7 @@ function Profile() {
 
     const handleDelete = () => {
         {
-            fetch('http://localhost:4000/users', {
+            fetch('https://young-headland-81478.herokuapp.com/users', {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             })
@@ -66,7 +66,7 @@ function Profile() {
         }
         // console.log(userData)
 
-        fetch(`http://localhost:4000/users/${id}`, {
+        fetch(`https://young-headland-81478.herokuapp.com/users/${id}`, {
             method: 'PATCH',
             body: JSON.stringify(userData),
             headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${token}` }

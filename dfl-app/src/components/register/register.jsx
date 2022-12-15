@@ -23,15 +23,18 @@ function Register() {
             email: e.target.email.value,
             password: e.target.password.value
         }
+console.log(e.target)
 
-        fetch('http://localhost:4000/auth/register', {
+        
+
+        fetch('https://young-headland-81478.herokuapp.com/auth/register', {
             method: 'POST',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' }
         })
             .then(d => d.json())
             .then((data) => {
-                updateUserData(...Userdata, user)
+                updateUserData(...Userdata, user) 
                
             })
         // console.log(user)

@@ -20,7 +20,8 @@ function Curiosity() {
     const [detailC, setdetailC] = useState('')
 
     useEffect(() => {
-        fetch('http://localhost:4000/curiosity')
+        // fetch('http://localhost:4000/curiosity')
+        fetch('https://young-headland-81478.herokuapp.com/curiosity')
             .then(j => j.json())
             .then(data => {
 

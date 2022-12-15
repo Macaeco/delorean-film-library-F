@@ -19,14 +19,14 @@ function Lists(props) {
     const [userL, setUserL] = useState([])
     const [theme, setTheme, changeTheme, filmsName, setFilmsName, logName, setLogName, access, updateAcces, filmsValue, setFilmsValue] = useContext(themeContext)
     const [idLisMB, setidLisMB] = useState({})
-
+  
 
     useEffect(() => {
-        fetch('http://localhost:4000/lists')
+        fetch('https://young-headland-81478.herokuapp.com/lists')
             .then(j => j.json())
             .then(data => {
 
-                setListFilms(data)
+                setListFilms(data) 
                 // console.log(data)
 
 
@@ -34,7 +34,7 @@ function Lists(props) {
     }, [])
     useEffect(() => {
 
-        fetch('http://localhost:4000/users', {
+        fetch('https://young-headland-81478.herokuapp.com/users', {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -60,7 +60,7 @@ function Lists(props) {
 
     const idFunction = (e) => {
         // console.log(e)
-        fetch(`http://localhost:4000/users/lists/${id}`, {
+        fetch(`https://young-headland-81478.herokuapp.com/users/lists/${id}`, {
             method: 'PATCH',
             body: JSON.stringify(e),
             headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${token}` }
